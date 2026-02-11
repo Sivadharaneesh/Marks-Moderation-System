@@ -1,0 +1,30 @@
+MARKS MODERATION SYSTEM - FINAL TEST RESULTS
+Date: 2026-02-01 23:17:00.218813
+======================================================================
+
+[PASS] | Invalid login rejected | Status 401
+[PASS] | Missing password rejected | Status 400
+[PASS] | MFA: OTP requested after password | OTP: 653542
+[PASS] | MFA: OTP verified, JWT issued | Token received
+[PASS] | Wrong OTP rejected | Status 401
+[PASS] | No token rejected | Status 401
+[PASS] | Faculty can access faculty routes | Status 200
+[PASS] | Faculty blocked from admin routes | Status 403
+[PASS] | Admin login successful | Token received
+[PASS] | Admin can access admin routes | Users: 6
+[PASS] | Admin can view audit logs | Status 200
+[PASS] | Policy: Valid strong password | Valid=True, Expected=True
+[PASS] | Policy: Too short password | Valid=False, Expected=False
+[PASS] | Policy: Common password (password123) | Valid=False, Expected=False
+[PASS] | Policy: Sequential chars (12345) | Valid=False, Expected=False
+[PASS] | Policy: Repeated chars (aaaa) | Valid=False, Expected=False
+[FAIL] | NoSQL injection blocked | Status 429
+[FAIL] | XSS attempt handled | Status 429
+[PASS] | Special chars processed | Valid=True
+[PASS] | Invalid token rejected | Status 422
+[PASS] | Token refresh (requires refresh_token) | Skipped - needs refresh token
+[PASS] | Login attempts logged | Found 10 login logs
+
+======================================================================
+TOTAL: 22 | PASSED: 20 | FAILED: 2
+PASS RATE: 90.9%

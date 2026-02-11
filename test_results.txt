@@ -1,0 +1,18 @@
+MARKS MODERATION SYSTEM - TEST RESULTS
+Date: 2026-02-01 23:12:12
+======================================================================
+[PASS] | Auth: Valid credentials -> OTP required | OTP sent: True
+[PASS] | Auth: Valid OTP -> JWT issued | Token received: True
+[PASS] | Authz: Protected route with token succeeds | Role: faculty
+[PASS] | Policy: Valid password accepted | Strength: Very Strong
+[PASS] | Policy: Short password rejected | Errors: 1
+[PASS] | Policy: Common password rejected | password123 is common
+[PASS] | Policy: Sequential chars rejected | Contains 12345
+[PASS] | Policy: Repeated chars rejected | Contains aaaa
+[FAIL] | Input: Empty body rejected | Status: 429
+[PASS] | Input: Special chars handled | Valid: True
+[FAIL] | RateLimit: Too many requests blocked | 429 received after multiple attempts
+[PASS] | Marks: Faculty can view subjects | Count: N/A
+[PASS] | Marks: Admin can view audit logs | Status: 200
+======================================================================
+TOTAL: 13 | PASSED: 11 | FAILED: 2
